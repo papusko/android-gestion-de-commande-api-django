@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.africa.cloud.commandes.model.Login;
+import com.africa.cloud.commandes.model.Lunette;
 import com.africa.cloud.commandes.model.User;
 import com.africa.cloud.commandes.service.GitHubClient;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText mUsername, mPassword;
     Button mLogin, mRegisterPage;
-    TextView maListe,mResponseTv;
+    TextView maListe,mResponseTv, mClients,mLunette;
     String username,password;
     private  User users;
 
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-
-
+        mLunette = (TextView) findViewById(R.id.lunette);
+        mClients = (TextView) findViewById(R.id.clients);
         mResponseTv = (TextView) findViewById(R.id.tv_response);
         mRegisterPage = (Button) findViewById(R.id.redirection);
         mUsername = (EditText) findViewById(R.id.username);
@@ -72,6 +73,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        mClients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ClientAjouterActivity.class);
+                startActivity(i);
+            }
+        });
+
+        mLunette.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, LunetteActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

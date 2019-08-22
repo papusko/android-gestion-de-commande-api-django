@@ -1,5 +1,7 @@
 package com.africa.cloud.commandes.service;
 
+import com.africa.cloud.commandes.model.Clients;
+import com.africa.cloud.commandes.model.Lunette;
 import com.africa.cloud.commandes.model.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -35,6 +37,9 @@ public interface GitHubClient {
 
 
 
+    @GET("lunette/")
+    Call<List<Lunette>> getLunette();
+
 
 
     @POST("auth/login/")
@@ -46,7 +51,21 @@ public interface GitHubClient {
 
     @GET("secretinfo")
     Call<ResponseBody> getSecret(@Header("Authorization") String authToken);
-    }
+
+
+
+
+    @POST("clients/")
+    @FormUrlEncoded
+    Call<Clients> saveClients(@Field("nom") String prenom,
+                           @Field("prenom") String nom,
+                           @Field("adresse") String username,
+                           @Field("telephone") String email);
+
+
+
+
+}
 
 
 

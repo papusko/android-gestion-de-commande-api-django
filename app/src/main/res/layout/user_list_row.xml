@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/prenom"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

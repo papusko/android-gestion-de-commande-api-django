@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Commandes</string>
+    <string name="images">http://192.168.1.211:8000/images/lunettes/</string>
 </resources>
