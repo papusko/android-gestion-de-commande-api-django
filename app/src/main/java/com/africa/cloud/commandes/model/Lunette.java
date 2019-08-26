@@ -15,9 +15,21 @@ public class Lunette {
     private
     String photo;
 
-    public Lunette(String types, String photo) {
-        this.types = this.types;
-        this.photo = this.photo;
+    @SerializedName("description")
+    @Expose
+    private
+    String description;
+
+    @SerializedName("prix")
+    @Expose
+    private
+    int prix;
+
+    public Lunette() {
+        this.description = description;
+        this.prix = prix;
+        this.types = types;
+        this.photo = photo;
     }
 
     public String getTypes() {
@@ -30,5 +42,21 @@ public class Lunette {
 
     public String getPhoto() {
         return photo;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
     }
 }

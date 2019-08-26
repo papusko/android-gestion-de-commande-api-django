@@ -26,55 +26,55 @@ import static android.support.v7.widget.LinearLayoutManager.*;
 
 public class AffichageActivity extends AppCompatActivity {
 
-    ArrayList<String> user;
-    ArrayAdapter adapter;
-    UserAdapter userAdapter;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private List<User> userList = new ArrayList<>();
+  ArrayList<String> user;
+  ArrayAdapter adapter;
+  UserAdapter userAdapter;
+  private RecyclerView recyclerView;
+  private RecyclerView.Adapter mAdapter;
+  private RecyclerView.LayoutManager layoutManager;
+  private List<User> userList = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_affichage);
-
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_affichage);
 
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.211:8000/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        GitHubClient user = retrofit.create(GitHubClient.class);
-        Call<List<User>> call = user.reposForUser();
-
-        call.enqueue(new Callback<List<User>>() {
-            @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-
-
-                List<User> repos = response.body();
-                mAdapter = new UserAdapter(userList,this);
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext()); // pour avoir une seule ligne et une liste de defilement RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                recyclerView.setLayoutManager(mLayoutManager);
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(mAdapter);
-
-
-            }
-
-            @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Erreur lors de la reccupération des données", Toast.LENGTH_SHORT).show();
-            }
-        });
+    recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
 
 
-    }
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("http://192.168.1.211:8000/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
+    GitHubClient user = retrofit.create(GitHubClient.class);
+    Call<List<User>> call = user.reposForUser();
+
+    call.enqueue(new Callback<List<User>>() {
+      @Override
+      public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+
+
+        List<User> repos = response.body();
+        mAdapter = new UserAdapter(userList,this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext()); // pour avoir une seule ligne et une liste de defilement RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+
+      }
+
+      @Override
+      public void onFailure(Call<List<User>> call, Throwable t) {
+        Toast.makeText(getApplicationContext(), "Erreur lors de la reccupération des données", Toast.LENGTH_SHORT).show();
+      }
+    });
+
+
+
+  }
 }

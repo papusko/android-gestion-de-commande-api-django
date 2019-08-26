@@ -1,4 +1,41 @@
 <resources>
     <string name="app_name">Commandes</string>
     <string name="images">http://192.168.1.211:8000/images/lunettes/</string>
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Produit</string>
+    <string name="nav_photos">Vêtements</string>
+    <string name="nav_movies">Sports</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_settings">Paramètres</string>
+    <string name="nav_about_us">A propos</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string name="activity_title_about_us">About Us</string>
+
+    <string name="activity_title_privacy_policy">Privacy Policy</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_fragment">Bonjour fragment</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="nav_item_activity_titles">
+        <item>Lunettes</item>
+        <item>Vêtements</item>
+        <item>Chaussures</item>
+        <item>Mode et accessoires</item>
+        <item>Electronique</item>
+        <item>Sport, Loisir, Jeux</item>
+        <item>Services</item>
+        <item>Paramètres</item>
+    </string-array>
+
 </resources>

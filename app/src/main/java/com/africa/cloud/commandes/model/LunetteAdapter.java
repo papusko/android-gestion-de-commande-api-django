@@ -1,39 +1,83 @@
 package com.africa.cloud.commandes.model;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.africa.cloud.commandes.LunetteFragment;
+import com.africa.cloud.commandes.LunetteTypeActivity;
 import com.africa.cloud.commandes.R;
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Integer.*;
 
-public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHolder>{
+public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHolder> implements View.OnClickListener{
 
 
     private List<Lunette> lunetteList;
+    public FragmentManager f_manager;
     //Lunette lunette;
     Context mContext;
+    @Override
+    public void onClick(View v) {
 
+    }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView types;
+        public TextView types, description, prix;
         private ImageView image;
+        List<Lunette> lunetteList = new ArrayList<>();
 
-        public MyViewHolder(View itemView) {
+
+
+
+
+
+
+        public MyViewHolder(final View itemView) {
             super(itemView);
             types = (TextView) itemView.findViewById(R.id.lunette_item_nom);
+            description = (TextView) itemView.findViewById(R.id.lunette_item_description);
+            prix = (TextView) itemView.findViewById(R.id.lunette_item_prix);
             image =(ImageView) itemView.findViewById(R.id.lunette_item_image);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onClick(View v) {
+                   Toast.makeText(mContext, "cool", Toast.LENGTH_SHORT).show();
+                    AppCompatActivity activity = (AppCompatActivity) itemView.getContext();
+                    LunetteFragment myFragment = LunetteFragment.newInstance("fragment","fragment2");
+
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout ,myFragment).addToBackStack(null).commit();
+
+
+
+
+
+                }
+            });
 
 
         }
@@ -47,6 +91,11 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
             this.image = image;
         }
     }
+
+
+    //communication et passage des données d'un fragment à un autre
+
+    
 
 
 
@@ -70,11 +119,16 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
         Lunette lunette = lunetteList.get(position);
         String nom =lunette.getTypes();
         String image = lunette.getPhoto();
+        int prix = lunette.getPrix();
 
         holder.types.setText(lunette.getTypes());
+        holder.description.setText(lunette.getDescription());
+        holder.prix.setText(Integer.toString(lunette.getPrix())+" F-CFA");
         //holder.image.setImageResource(parseInt(lunetteList.get(position).getPhoto()));
+        Glide.with(mContext).load(image).into(holder.image);
 
-        Picasso.with(mContext).load("http://192.168.1.211:8000/images/lunettes/lunette.jpg").into(holder.image);
+
+
     }
 
 

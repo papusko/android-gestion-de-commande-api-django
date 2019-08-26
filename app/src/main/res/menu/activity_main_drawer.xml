@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_produits"
+            android:icon="@drawable/ic_produits"
+            android:title="Lunettes" />
+
+
+        <item
+            android:id="@+id/nav_vetements"
+            android:icon="@drawable/ic_vetements"
+            android:title="Vêtements" />
+
+        <item
+            android:id="@+id/nav_chaussures"
+            android:icon="@drawable/ic_chaussures"
+            android:title="Chaussures" />
+
+
+        <item
+            android:id="@+id/nav_modes_accessoire"
+            android:icon="@drawable/ic_accessoires"
+            android:title="Mode et Accessoires" />
+
+        <item
+            android:id="@+id/nav_electronique"
+            android:icon="@drawable/ic_electroniques"
+            android:title="Electronique" />
+
+
+        <item
+            android:id="@+id/nav_sports"
+            android:icon="@drawable/ic_ballons"
+            android:title="Sport, Loisir, Jeux" />
+
+        <item
+            android:id="@+id/nav_services"
+            android:icon="@drawable/ic_services"
+            android:title="Services" />
+
+        <item
+            android:id="@+id/nav_parametres"
+            android:icon="@drawable/ic_settings"
+            android:title="Paramètres" />
+    </group>
+
+    <item android:title="Autres">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
+                android:title= "A propos de lâabal" />
+            <item
+                android:id="@+id/nav_privacy_policy"
+                android:title="Les promoteurs" />
+
+            <item
+                android:id="@+id/nav_clients"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="Espace clients" />
+
+            <item
+                android:id="@+id/nav_admin"
+                android:title="Espace administrateurs" />
+        </menu>
+    </item>
+
+
+</menu>

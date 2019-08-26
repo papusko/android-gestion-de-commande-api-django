@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/back"
+    android:id="@+id/frame_layout"
+    tools:context=".ProduitFragment">
+
+    <android.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:elevation="2dp"
+        android:layout_margin="15dp"
+        android:background="#fff"
+        android:queryHint="Zone de recherche"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content">
+    </android.widget.SearchView>
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lunette_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+</RelativeLayout>
