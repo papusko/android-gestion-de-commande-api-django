@@ -21,51 +21,48 @@ import retrofit2.http.Path;
 
 public interface GitHubClient {
 
-    @GET("users")
-    Call<List<User>> reposForUser();
+  @GET("users")
+  Call<List<User>> reposForUser();
 
 
 
-    @POST("auth/register/")
-    @FormUrlEncoded
-    Call<User> saveUser(@Field("prenom") String prenom,
-                        @Field("nom") String nom,
-                        @Field("username") String username,
-                        @Field("email") String email,
-                        @Field("password") String password,
-                        @Field("confirmPassword") String confirmPassword);
+  @POST("auth/register/")
+  @FormUrlEncoded
+  Call<User> saveUser(@Field("prenom") String prenom,
+                      @Field("nom") String nom,
+                      @Field("username") String username,
+                      @Field("email") String email,
+                      @Field("password") String password,
+                      @Field("confirmPassword") String confirmPassword);
 
 
 
-    @GET("lunette/")
-    Call<List<Lunette>> getLunette();
+  @GET("lunette/")
+  Call<List<Lunette>> getLunette();
 
 
 
-    @POST("auth/login/")
-    @FormUrlEncoded
-    Call<User> refreshToken(
-            @Field("username") String username,
-            @Field("password") String password
-    );
+  @POST("auth/login/")
+  @FormUrlEncoded
+  Call<User> refreshToken(
+          @Field("username") String username,
+          @Field("password") String password
+  );
 
-    @GET("secretinfo")
-    Call<ResponseBody> getSecret(@Header("Authorization") String authToken);
-
-
+  @GET("secretinfo")
+  Call<ResponseBody> getSecret(@Header("Authorization") String authToken);
 
 
-    @POST("clients/")
-    @FormUrlEncoded
-    Call<Clients> saveClients(@Field("nom") String prenom,
-                           @Field("prenom") String nom,
-                           @Field("adresse") String username,
-                           @Field("telephone") String email);
+
+
+  @POST("clients/")
+  @FormUrlEncoded
+  Call<Clients> saveClients(@Field("nom") String prenom,
+                            @Field("prenom") String nom,
+                            @Field("adresse") String username,
+                            @Field("telephone") String email);
 
 
 
 
 }
-
-
-

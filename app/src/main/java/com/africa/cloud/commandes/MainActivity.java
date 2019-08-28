@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void sendPost(String username, String password) {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.211:8000/api/")
+                .baseUrl("http://192.168.1.109:8000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

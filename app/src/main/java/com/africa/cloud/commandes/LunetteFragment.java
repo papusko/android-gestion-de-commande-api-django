@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.africa.cloud.commandes.model.Lunette;
+
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,6 +61,9 @@ public class LunetteFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            Bundle bundle = getArguments();
+            Lunette obj= (Lunette) bundle.getSerializable("lunette");
         }
     }
 
@@ -65,6 +72,8 @@ public class LunetteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lunette, container, false);
+
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

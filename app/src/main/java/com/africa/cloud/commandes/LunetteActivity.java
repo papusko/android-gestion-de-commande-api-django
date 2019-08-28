@@ -110,8 +110,6 @@ public class LunetteActivity extends AppCompatActivity implements LunetteFragmen
 
 
 
-
-
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 

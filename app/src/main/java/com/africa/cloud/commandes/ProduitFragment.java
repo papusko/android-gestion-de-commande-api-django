@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,6 +48,10 @@ public class ProduitFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+
+    FragmentTransaction ft=null;
+    FragmentManager fm=null;
 
 
     private static final String TAG ="cool" ;
@@ -179,7 +185,7 @@ public class ProduitFragment extends Fragment {
     private void prepareLunetteData() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.67:8000/api/")
+                .baseUrl("http://192.168.1.109:8000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -212,7 +218,7 @@ public class ProduitFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Lunette>> call, Throwable t) {
 
-                Toast.makeText(context, "i djasigui kagna"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Veuillez verifier votre connexion"+t.getMessage(), Toast.LENGTH_SHORT).show();
 
 
             }

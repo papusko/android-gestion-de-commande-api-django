@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -21,10 +22,12 @@ import android.widget.Toast;
 import com.africa.cloud.commandes.LunetteFragment;
 import com.africa.cloud.commandes.LunetteTypeActivity;
 import com.africa.cloud.commandes.R;
+import com.africa.cloud.commandes.activity.ProduitDetailActivity;
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +36,7 @@ import static java.lang.Integer.*;
 public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHolder> implements View.OnClickListener{
 
 
+    Lunette lunette;
     private List<Lunette> lunetteList;
     public FragmentManager f_manager;
     //Lunette lunette;
@@ -40,22 +44,24 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
     @Override
     public void onClick(View v) {
 
+
     }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView types, description, prix;
         private ImageView image;
+        Context mContext;
         List<Lunette> lunetteList = new ArrayList<>();
 
 
 
 
-
-
-
-        public MyViewHolder(final View itemView) {
+        public MyViewHolder(final View itemView, final List<Lunette> lunetteList, final Context mContext) {
             super(itemView);
+            this.lunetteList = lunetteList;
+            this.mContext = mContext;
+
             types = (TextView) itemView.findViewById(R.id.lunette_item_nom);
             description = (TextView) itemView.findViewById(R.id.lunette_item_description);
             prix = (TextView) itemView.findViewById(R.id.lunette_item_prix);
@@ -63,15 +69,35 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
-                @SuppressLint("ResourceType")
                 @Override
                 public void onClick(View v) {
-                   Toast.makeText(mContext, "cool", Toast.LENGTH_SHORT).show();
-                    AppCompatActivity activity = (AppCompatActivity) itemView.getContext();
-                    LunetteFragment myFragment = LunetteFragment.newInstance("fragment","fragment2");
 
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout ,myFragment).addToBackStack(null).commit();
+                    int position =getAdapterPosition();
 
+                    Lunette lunette = lunetteList.get(position);
+                  Intent details = new Intent(mContext, ProduitDetailActivity.class); //Initialisation de l'Intent pour la redirection vers l'activité contenant le fragment details
+
+                   //*********************************************************************************************************
+                   //envoi des données dans l'activité ProduitDetailActivité
+                   //**********************************************************************************************************
+
+                    details.putExtra("image", lunette.getPhoto()); //envoi de l'image
+                    details.putExtra("types", lunette.getTypes() ); //envoi des types de produit
+                    details.putExtra("description", lunette.getDescription()); //envoi de la description du produit
+                    details.putExtra("prix",Integer.toString(lunette.getPrix() )); //envoi du prix
+
+
+                    //************************************************************************************************************************************
+                    //Toast de text pour la reccuperation des données qu'on tente d'envoyer que je vais juste commenté
+                    //*************************************************************************************************************************************
+
+                  //  Toast.makeText(mContext, ""+lunette.getTypes()+" "+lunette.getDescription()+" "+lunette.getPrix(), Toast.LENGTH_SHORT).show();
+
+
+                    //*******************************************************************************************************************************************
+                    //Lancement et le demarrage de l'activité ProduitDetailActivity avec les données envoyer qu'on reccupera au niveau de ProduitDetailActivity
+                    //********************************************************************************************************************************************
+                    mContext.startActivity(details);
 
 
 
@@ -102,7 +128,10 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
     public LunetteAdapter(List<Lunette> lunetteList,Context mContext) {
         this.lunetteList = lunetteList;
         this.mContext = mContext;
+
     }
+
+
 
 
     @Override
@@ -110,7 +139,8 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.lunette_item, parent, false);
 
-        return new MyViewHolder(itemView);
+
+        return new MyViewHolder(itemView,lunetteList, mContext);
     }
 
 
@@ -129,6 +159,7 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
 
 
 
+
     }
 
 
@@ -136,6 +167,8 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
     public int getItemCount() {
         return lunetteList.size();
     }
+
+
 
 
 }
