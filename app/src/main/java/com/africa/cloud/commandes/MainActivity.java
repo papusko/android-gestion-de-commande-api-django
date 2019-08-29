@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.africa.cloud.commandes.model.Login;
+//import com.africa.cloud.commandes.model.Login;
 import com.africa.cloud.commandes.model.Lunette;
 import com.africa.cloud.commandes.model.User;
 import com.africa.cloud.commandes.service.GitHubClient;

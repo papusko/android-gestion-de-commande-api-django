@@ -11,33 +11,33 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/cardview_compat_inset_shadow">
 
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16dp"
-        android:textStyle="bold" />
+  <TextView
+      android:id="@+id/nom"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="16dp"
+      android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/prenom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nom" />
+  <TextView
+      android:id="@+id/prenom"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/nom" />
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/prenom"/>
+  <TextView
+      android:id="@+id/username"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/prenom"/>
 
-    <ImageView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/colorPrimaryDark" />
+  <ImageView
+      android:id="@+id/password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:textColor="@color/colorPrimaryDark" />
 
 
 
