@@ -68,6 +68,9 @@ public class LunetteAdapter extends RecyclerView.Adapter<LunetteAdapter.MyViewHo
             image =(ImageView) itemView.findViewById(R.id.lunette_item_image);
 
 
+
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

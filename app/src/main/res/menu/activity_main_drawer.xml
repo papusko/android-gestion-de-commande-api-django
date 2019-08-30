@@ -52,7 +52,8 @@
         <menu>
             <item
                 android:id="@+id/nav_about_us"
-                android:title= "A propos de lâabal" />
+                android:title= "mon panier"
+                android:icon="@drawable/ic_paniers"/>
             <item
                 android:id="@+id/nav_privacy_policy"
                 android:title="Les promoteurs" />

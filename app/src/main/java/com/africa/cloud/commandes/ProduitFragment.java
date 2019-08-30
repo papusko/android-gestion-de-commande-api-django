@@ -28,6 +28,7 @@ import com.africa.cloud.commandes.service.GitHubClient;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -185,7 +186,7 @@ public class ProduitFragment extends Fragment {
     private void prepareLunetteData() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.109:8000/api/")
+                .baseUrl("http://192.168.1.21:8000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

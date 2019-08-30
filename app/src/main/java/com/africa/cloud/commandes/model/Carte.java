@@ -1,39 +1,30 @@
 package com.africa.cloud.commandes.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.io.Serializable;
-
+import io.realm.Realm;
 import io.realm.RealmObject;
 
-public class Lunette extends RealmObject {
+public class Carte extends RealmObject {
 
-    @SerializedName("types")
-    @Expose
+
     private
     String types;
 
-    @SerializedName("photo")
-    @Expose
     private
     String photo;
 
-    @SerializedName("description")
-    @Expose
     private
     String description;
 
-    @SerializedName("prix")
-    @Expose
+
     private
     int prix;
 
-    public Lunette() {
-        this.description = description;
-        this.prix = prix;
+
+    public Carte() {
         this.types = types;
         this.photo = photo;
+        this.description = description;
+        this.prix = prix;
     }
 
     public String getTypes() {

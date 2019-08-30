@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.africa.cloud.commandes.activity.PanierActivity;
 import com.africa.cloud.commandes.model.Lunette;
 import com.africa.cloud.commandes.model.LunetteAdapter;
 import com.android.volley.RequestQueue;
@@ -388,9 +390,14 @@ public class LunetteActivity extends AppCompatActivity implements LunetteFragmen
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
 
+
         // show menu only when home fragment is selected
         if (navItemIndex == 0) {
+
+            MenuInflater inflater = getMenuInflater();
+
             getMenuInflater().inflate(R.menu.main, menu);
+            return true;
         }
 
         // when fragment is notifications, load the menu created for notifications
@@ -409,8 +416,15 @@ public class LunetteActivity extends AppCompatActivity implements LunetteFragmen
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Deconnexion de l'utilisateur!", Toast.LENGTH_LONG).show();
             return true;
+        }
+
+
+        if (id == R.id.panier_settings) {
+         Intent panier = new Intent(LunetteActivity.this, PanierActivity.class);
+         startActivity(panier);
+         return true;
         }
 
         // user is in notifications fragment
